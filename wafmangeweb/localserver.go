@@ -358,7 +358,7 @@ func (web *WafWebManager) StartLocalServer() error {
 	}
 
 	web.HttpServer = &http.Server{
-		Addr:    "172.22.222.1" + strconv.Itoa(global.GWAF_LOCAL_SERVER_PORT),
+		Addr:    "172.22.222.1:" + strconv.Itoa(global.GWAF_LOCAL_SERVER_PORT),
 		Handler: &httpsRedirectHandler{inner: handler},
 		// 把混合连接指针放入请求 context，供 httpsRedirectHandler 判断本次请求是 HTTP 还是 HTTPS。
 		// 纯 HTTP 降级监听器产生的不是 *hybridConn，取不到 → 天然不强制跳转，避免无证书时把用户锁死。
