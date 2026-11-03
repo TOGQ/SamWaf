@@ -13,9 +13,8 @@ env:
   REGISTRY: docker.io
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
-  # Linux 和 Windows 编译任务
-  goreleaser-linux-windows:
-    # 固定 24.04：26.04 runner 上的 musl 是 x86-64-v3 构建，静态链接后的产物在无 AVX2/BMI 的 CPU 上启动即 SIGILL
+  # Linux 编译与 Docker 镜像构建任务
+  goreleaser-linux:
     runs-on: ubuntu-24.04
     # 卡死保护：apt/网络挂住时快速失败，而不是烧满 6 小时默认上限
     timeout-minutes: 60
