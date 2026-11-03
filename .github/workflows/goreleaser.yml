@@ -15,7 +15,7 @@ env:
 jobs:
   # Linux 编译与 Docker 镜像构建任务
   goreleaser-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # 卡死保护：apt/网络挂住时快速失败，而不是烧满 6 小时默认上限
     timeout-minutes: 60
     steps:
